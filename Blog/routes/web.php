@@ -21,3 +21,4 @@ Route::get('admin', 'BlogController@admin');
 
 Route::post('guardarImg', 'BlogController@guardarImg')->name('guardarImg');
 
+Route::get('imagen/{ancho}/{alto}', 'BlogController@imagen');

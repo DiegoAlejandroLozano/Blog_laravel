@@ -28,7 +28,15 @@
                 <hr>
 
                 <!-- Preview Image -->
-                <img class="img-responsive" src="{{ asset('storage/imagenes/photo.jpg') }}" alt="">
+                <picture>
+                    <source srcset="{{ asset('storage/imagenes/img_500_200.png') }}" media="( max-width: 500px )">
+                    <source srcset="{{ asset('storage/imagenes/img_800_320.png') }}" media="( max-width: 800px )">
+                    <source srcset="{{ asset('storage/imagenes/img_1000_400.png') }}" media="( max-width: 1000px )">
+
+                    <img class="img-responsive" src="{{ asset('storage/imagenes/photo.jpg') }}" alt=""> 
+                </picture>
+
+                {{-- <img class="img-responsive" src="{{ asset('storage/imagenes/photo.jpg') }}" alt=""> --}}
 
                 <hr>
 
