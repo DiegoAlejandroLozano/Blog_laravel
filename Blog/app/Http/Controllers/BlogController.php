@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Content;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Image;
@@ -9,7 +10,10 @@ use Image;
 class BlogController extends Controller
 {
     public function index(){
-    	return view('index');
+
+        $contenido = Content::find(1);
+    	
+        return view('index')->with('contenido', $contenido->contenido);
     }
 
     public function admin(){
@@ -36,8 +40,13 @@ class BlogController extends Controller
         $imagen->resize(1000, 400);
         $imagen->save('storage/imagenes/img_1000_400.png');
 
+        //creando un nuevo contenido
+        $contenido = Content::find(1);
+        $contenido->contenido = $request->texto;
+        $contenido->save();
 
-    	return 'imagen guardada';
+
+    	return view('index')->with('contenido', $contenido->contenido);
     }
 
     public function imagen( $ancho, $alto ){

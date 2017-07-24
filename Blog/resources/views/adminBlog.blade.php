@@ -17,6 +17,12 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="texto">Editar Texto</label>
+                        <textarea name="texto" id="texto" cols="30" rows="10" required="" class="form-control"></textarea>
+                        @ckeditor('texto')
+                    </div>
+
+                    <div class="form-group">
                         <input type="submit" value="Enviar" class="btn btn-primary">
                     </div>
 
